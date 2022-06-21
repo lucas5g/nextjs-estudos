@@ -1,4 +1,5 @@
 import { createContext, useState } from 'react'
+import { useRouter } from 'next/router'
 import firebase from '../lib/firebase'
 import { getAuth, signInWithPopup, GithubAuthProvider } from 'firebase/auth'
 // import 
@@ -20,12 +21,12 @@ export function AuthProvider({ children }) {
       signInWithPopup(auth, provider)
         .then(res => {
           setUser(res.user)
-          Router.push('/dashboard')
+          useRouter().push('/dashboard')
         }).catch(error => {
           console.log(error)
         })
 
-   
+
     } finally {
       setLoading(false)
     }
