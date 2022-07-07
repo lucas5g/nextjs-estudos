@@ -1,7 +1,9 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { MovieCard } from "../components/MovieCard"
 
 interface Movie{
+    id: number
     title: string 
 }
 
@@ -23,8 +25,9 @@ export function Home(){
     }, [])
     return (
         <div>
+            <h2>Melhores filmes:</h2>
             {movies.map( movie => (
-                <p>{movie.title}</p>
+                <MovieCard key={movie.id} movie={movie}/>
             ))}
         </div>
     )
