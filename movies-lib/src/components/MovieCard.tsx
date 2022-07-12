@@ -6,6 +6,7 @@ interface MovieCard{
         id: number
         title: string
         poster_path: string
+        vote_average: string
 
     },
     showLink: boolean
@@ -20,7 +21,7 @@ export function MovieCard({ movie, showLink = true }:MovieCard) {
                 {movie.title}
             </h2>
             <p>
-                <FaStar />
+                <FaStar /> {movie.vote_average}
             </p>
             {showLink &&
                 <Link to={`/movie/${movie.id}`}>
